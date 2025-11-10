@@ -1,3 +1,4 @@
 # Ignore .exe and .o files inside Code_block
 *.exe
 *.o
+*.gitignore
