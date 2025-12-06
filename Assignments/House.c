@@ -69,84 +69,169 @@
 // }
 
 
+// #include <stdio.h>
+
+// void stars(int n){ for(int i=0;i<n;i++) printf("* "); }
+// void spaces(int n){ for(int i=0;i<n;i++) printf("  "); }
+
+// int main(){
+//     int S;
+//     printf("Enter house size: ");
+//     scanf("%d",&S);
+
+//     int roofRows = S;
+//     int wallRows = S + 4;
+//     int fullCols = (S*4);
+
+//     int windowRows = S/2;
+//     if(windowRows < 1) windowRows = 1;
+
+//     int doorSize = S/2;
+//     if(doorSize < 2) doorSize = 2;
+
+//     // ========================= ROOF =========================
+//     for(int i=0;i<roofRows;i++){
+
+//         // left padding
+//         for(int j=0;j<2*(roofRows-i)-1;j++) printf(" ");
+
+//         // left triangle
+//         for(int k=0;k<=i;k++) printf("* ");
+
+//         // middle rectangle
+//         for(int j=0;j<roofRows*2;j++) printf("* ");
+
+//         // right triangle
+//         for(int k=0;k<=i;k++) printf("* ");
+
+//         printf("\n");
+//     }
+
+//     // ========================= WALLS =========================
+
+//     int winStart = 3;
+//     int winEnd   = winStart + windowRows - 1;
+
+//     int doorStart = wallRows - doorSize;
+
+//     for(int i=1;i<=wallRows;i++){
+
+//         // Full row (top rows)
+//         if(i <= 2){
+//             stars(fullCols);
+//         }
+
+//         // Window rows
+//         else if(i >= winStart && i <= winEnd){
+
+//             int block = S;
+//             int gap   = S/2;
+//             int mid   = fullCols - 2*block - 2*gap;
+
+//             stars(block);
+//             spaces(gap);
+//             stars(mid);
+//             spaces(gap);
+//             stars(block);
+//         }
+
+//         // Middle full rows
+//         else if(i < doorStart){
+//             stars(fullCols);
+//         }
+
+//         // Door rows
+//         else {
+//             int side = (fullCols - doorSize)/2;
+
+//             stars(side);
+//             stars(doorSize);
+//             stars(side);
+//         }
+
+//         printf("\n");
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
 #include <stdio.h>
 
-void stars(int n){ for(int i=0;i<n;i++) printf("* "); }
-void spaces(int n){ for(int i=0;i<n;i++) printf("  "); }
+void printStars(int count) {
+    for(int i=0; i<count; i++)
+        printf("* ");
+}
 
-int main(){
-    int S;
+void printSpaces(int count) {
+    for(int i=0; i<count; i++)
+        printf("  ");
+}
+
+int main() {
+    int size;
     printf("Enter house size: ");
-    scanf("%d",&S);
+    scanf("%d", &size);
 
-    int roofRows = S;
-    int wallRows = S + 4;
-    int fullCols = (S*4);
+    int roofHeight = size;
+    int wallHeight = size + 4;
+    int wallWidth  = size * 4;
 
-    int windowRows = S/2;
-    if(windowRows < 1) windowRows = 1;
+    int windowHeight = size / 2;
+    if(windowHeight < 1) windowHeight = 1;
 
-    int doorSize = S/2;
-    if(doorSize < 2) doorSize = 2;
+    int doorHeight = size / 2;
+    if(doorHeight < 2) doorHeight = 2;
 
-    // ========================= ROOF =========================
-    for(int i=0;i<roofRows;i++){
+    // ROOF
+    for(int row=0; row<roofHeight; row++) {
 
-        // left padding
-        for(int j=0;j<2*(roofRows-i)-1;j++) printf(" ");
+        int leftSpaces = 2*(roofHeight-row)-1;
+        for(int s=0; s<leftSpaces; s++)
+            printf(" ");
 
-        // left triangle
-        for(int k=0;k<=i;k++) printf("* ");
-
-        // middle rectangle
-        for(int j=0;j<roofRows*2;j++) printf("* ");
-
-        // right triangle
-        for(int k=0;k<=i;k++) printf("* ");
+        printStars(row+1);
+        printStars(roofHeight*2);
+        printStars(row+1);
 
         printf("\n");
     }
 
-    // ========================= WALLS =========================
+    int windowStartRow = 3;
+    int windowEndRow = windowStartRow + windowHeight - 1;
 
-    int winStart = 3;
-    int winEnd   = winStart + windowRows - 1;
+    int doorStartRow = wallHeight - doorHeight;
 
-    int doorStart = wallRows - doorSize;
+    // WALL
+    for(int row=1; row<=wallHeight; row++) {
 
-    for(int i=1;i<=wallRows;i++){
-
-        // Full row (top rows)
-        if(i <= 2){
-            stars(fullCols);
+        if(row <= 2) {
+            printStars(wallWidth);
         }
+        else if(row >= windowStartRow && row <= windowEndRow) {
 
-        // Window rows
-        else if(i >= winStart && i <= winEnd){
+            int windowBlock = size;
+            int windowGap = size/2;
+            int centerStars = wallWidth - 2*windowBlock - 2*windowGap;
 
-            int block = S;
-            int gap   = S/2;
-            int mid   = fullCols - 2*block - 2*gap;
-
-            stars(block);
-            spaces(gap);
-            stars(mid);
-            spaces(gap);
-            stars(block);
+            printStars(windowBlock);
+            printSpaces(windowGap);
+            printStars(centerStars);
+            printSpaces(windowGap);
+            printStars(windowBlock);
         }
-
-        // Middle full rows
-        else if(i < doorStart){
-            stars(fullCols);
+        else if(row < doorStartRow) {
+            printStars(wallWidth);
         }
-
-        // Door rows
         else {
-            int side = (fullCols - doorSize)/2;
+            int sideStars = (wallWidth - doorHeight) / 2;
 
-            stars(side);
-            stars(doorSize);
-            stars(side);
+            printStars(sideStars);
+            printSpaces(doorHeight);
+            printStars(sideStars);
         }
 
         printf("\n");
