@@ -6,7 +6,6 @@ void TOH(int n, char Source, char Helper, char Destination) {
         printf("Move disk 1 from %c to %c\n", Source, Destination);
         return;
     }
-
     // Step 1: Top n-1 disks ko Source se Helper pe move karo (Destination ko help ke liye use karte hue)
     TOH(n - 1, Source, Destination, Helper);
 
