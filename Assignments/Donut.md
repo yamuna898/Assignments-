@@ -1,68 +1,43 @@
-The code :
-k;double sin()
-,cos();main(){float A=
-0,B=0,i,j,z[1760];char b[
-1760];printf("\x1b[2J");for(;;
-){memset(b,32,1760);memset(z,0,7040)
-;for(j=0;6.28>j;j+=0.07)for(i=0;6.28
-
-> i;i+=0.02){float c=sin(i),d=cos(j),e=
-> sin(A),f=sin(j),g=cos(A),h=d+2,D=1/(c*
-> h*e+f*g+5),l=cos (i),m=cos(B),n=s\
-> in(B),t=c*h*g-f* e;int x=40+30*D*
-> (l*h*m-t*n),y= 12+15*D*(l*h*n
-> +t*m),o=x+80*y, N=8*((f*e-c*d*g
-> )*m-c*d*e-f*g-l *d*n);if(22>y&&
-> y>0&&x>0&&80>x&&D>z[o]){z[o]=D;;;b[o]=
-> ".,-~:;=!*#$@"[N>0?N:0];}}/_#\*\*\*\*!!-_/
-> printf("\x1b[H");for(k=0;1761>k;k++)
-> putchar(k%80?b[k]:10);A+=0.04;B+=
-
-     0.02;}}/*****####*******!!=;:~
-       ~::==!!!**********!!!==::-
-         .,~~;;;========;;;:~-.
-             ..,--------,*/
-
 This is what I understood after reading the donut program documentation.
 
-# What this program does :
+# What this program does :<br>
 
-It prints a rotating 3D donut in the terminal using only C code and ASCII characters. Basically, it keeps drawing frames again and again so it looks like the donut is spinning.
+It prints a rotating 3D donut in the terminal using only C code and ASCII characters. Basically, it keeps drawing frames again and again so it looks like the donut is spinning.<br><br>
 
-How it works? :
+## How it works? :<br>
 
-The donut is made using maths.
+The donut is made using maths.<br>
 
-These angles help calculate the donut’s shape in 3D.
+### These angles help calculate the donut’s shape in 3D.<br>
 
-theta → goes around the donut ring
-phi → goes around the donut hole
+theta → goes around the donut ring<br>
+phi → goes around the donut hole<br>
 
-#The donut rotates because two variables keep changing:
+### The donut rotates because two variables keep changing:<br>
 
-A → rotation around x-axis
-B → rotation around z-axis
-After every frame, A and B increase a little bit, so the donut moves.
+A → rotation around x-axis<br>
+B → rotation around z-axis<br>
+After every frame, A and B increase a little bit, so the donut moves.<br>
 
-#Brightness using ASCII chars
+### Brightness using ASCII chars<br>
 
-Different ASCII symbols show different lighting.
-Brighter surface → characters like @ or #
-Dimmer surface → . , - ~ etc.
-The character chosen depends on how light hits the surface point.
+Different ASCII symbols show different lighting.<br>
+Brighter surface → characters like @ or # <br>
+Dimmer surface → . , - ~ etc.<br>
+The character chosen depends on how light hits the surface point.<br><br>
 
-Main loop
+## Main loop<br><br>
 
-The whole donut is drawn again and again using a loop:
+The whole donut is drawn again and again using a loop:<br><br>
 
-calculate points
-choose brightness
-print the frame
-update A and B
-And this repeats forever.
+calculate points<br>
+choose brightness<br>
+print the frame<br>
+update A and B<br>
+And this repeats forever.<br><br>
 
-No graphics libraries used
-Simple but smart logic
-output is amzing
+No graphics libraries used<br>
+Simple but smart logic<br>
+output is amzing<br><br>
 
-Thank you.
+Thank you.<br><br>
