@@ -4,7 +4,7 @@
 5,00,001 – 10,00,000 → 20% on amount above 5L
 Above 10,00,000 → 30% on amount above 10L
 */
-
+ 
 #include <stdio.h>
 int main() {
     float income, tax = 0;
